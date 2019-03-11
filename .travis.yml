@@ -17,6 +17,7 @@ env:
 before_install:
 - openssl aes-256-cbc -K $encrypted_feef038d51ef_key -iv $encrypted_feef038d51ef_iv
   -in deploy_key.enc -out deploy_key -d
+- chmod 600 deploy_key
 - echo "IdentityFile deploy_key" >> ~/.ssh/config
 - git submodule update --init
 - scripts/deps.sh
